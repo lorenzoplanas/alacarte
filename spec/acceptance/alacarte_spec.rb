@@ -1,9 +1,6 @@
 require "spec_helper"
 
 feature "Basic user documentation" do
-  let(:buffer) { "" }
-  let(:builder) { Builder::XmlMarkup.new(target: buffer, indent: 2) }
-
   before :each do
     doc :visit, "http://www.google.es"
   end

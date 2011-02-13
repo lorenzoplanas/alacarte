@@ -5,6 +5,9 @@ module Alacarte
     end
 
     ::Rspec.configure do |config|
+      config.before :each do
+      end
+
       config.after :each do 
         File.open("#{DOCS_PATH}/#{underscored_description}.html", "w") do |f|
           f.puts buffer
@@ -44,6 +47,14 @@ module Alacarte
   end
 
   module Helpers
+    def buffer
+      @buffer ||= ""
+    end
+
+    def builder
+      @builer ||= Builder::XmlMarkup.new target: buffer, indent: 2 
+    end
+
     def doc(*args)
       annotate builder, *args
     end
