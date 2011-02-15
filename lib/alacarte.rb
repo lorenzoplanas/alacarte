@@ -10,7 +10,7 @@ module Alacarte
   end
 
   def self.included(other_module)
-    Alacarte.docs ||= "#{`pwd`}/docs"
+    Alacarte.docs ||= "#{Dir.pwd}/docs"
     Capybara.default_driver = :selenium
     RSpec.configure do |config|
       config.after :each do 
